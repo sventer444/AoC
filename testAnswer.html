@@ -1,0 +1,53 @@
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Advent of Code</h1>
+        <pre>
+                 /\
+                <  >
+                 \/
+                 /\
+                /  \
+               /++++\
+              /  ()  \
+              /      \
+             /~`~`~`~`\
+            /  ()  ()  \
+            /          \
+           /*&*&*&*&*&*&\
+          /  ()  ()  ()  \
+          /              \
+         /++++++++++++++++\
+        /  ()  ()  ()  ()  \
+        /                  \
+       /~`~`~`~`~`~`~`~`~`~`\
+      /  ()  ()  ()  ()  ()  \
+      /*&*&*&*&*&*&*&*&*&*&*&\
+     /                        \
+    /,.,.,.,.,.,.,.,.,.,.,.,.,.\
+               |   |
+              |`````|
+              \_____/
+        </pre>
+        <br><br>
+
+        <input type='file' accept='text/plain' onchange='openFile(event)'><br>
+
+<script>
+    var text
+  var openFile = function(event) {
+    var input = event.target;
+    var reader = new FileReader();
+    reader.onload = function(){
+      var info = reader.result;
+      readText(info)
+    };
+    reader.readAsText(input.files[0]);
+  };
+
+</script>
+<script id="script" src="2019/problem1/answer1.js"></script>
+    </body>
+    </html> 
