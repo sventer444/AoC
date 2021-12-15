@@ -1,5 +1,7 @@
 <nav class="navbar">
-  <LinkTo @route="index" class="menu-index">
-    <h1>Home</h1>
-  </LinkTo>
+  <h1>Advent of Code</h1>
+    <button class="2018" type="button" {{on "click" (fn this.displayCalendar '2018')}}>2018</button>
+    <button class="2019" type="button" {{on "click" (fn this.displayCalendar '2019')}}>2019</button>
+    <button class="2020" type="button" {{on "click" (fn this.displayCalendar '2020')}}>2020</button>
+    <button class="2021" type="button" {{on "click" (fn this.displayCalendar '2021')}}>2021</button>
 </nav>
