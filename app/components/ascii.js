@@ -9,6 +9,8 @@ export default class AsciiComponent extends Component {
         return 'ascii/santa';
       case 3:
         return 'ascii/ornaments';
+      default :
+      return 'There was an error retrieving the ascii art'
     }
   }
   get pickArt() {
