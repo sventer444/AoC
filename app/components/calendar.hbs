@@ -2,6 +2,13 @@
 {{#if this.calendarManager.calendarDisplayed}}
 <h1>{{this.calendarManager.calendarDisplayed}}</h1>
 <div class="monthGrid">
-    <p>Day 1</p>
+    <GridStack @options={{hash animate=true}}>
+  <GridStackItem @options={{hash x=0 y=0 w=6 h=2}}>
+    1
+  </GridStackItem>
+  <GridStackItem @options={{hash x=6 y=0 w=6 h=2}}>
+    2
+  </GridStackItem>
+</GridStack>
 </div>
 {{/if}}
