@@ -1,7 +1,17 @@
-<nav class="navbar">
-  <h1>Advent of Code</h1>
-    <button class="2018" type="button" {{on "click" (fn this.displayCalendar '2018')}}>2018</button>
-    <button class="2019" type="button" {{on "click" (fn this.displayCalendar '2019')}}>2019</button>
-    <button class="2020" type="button" {{on "click" (fn this.displayCalendar '2020')}}>2020</button>
-    <button class="2021" type="button" {{on "click" (fn this.displayCalendar '2021')}}>2021</button>
-</nav>
+<ul class="navbar">
+  <li class="pageTitle">
+  <h1 class="titleText">Advent of Code</h1>
+  </li>
+  <li class="yearButton">
+  <button class="year" type="button" {{on "click" (fn this.displayCalendar '2018')}}>2018</button>
+  </li>
+  <li class="yearButton">
+  <button class="year" type="button" {{on "click" (fn this.displayCalendar '2019')}}>2019</button>
+  </li>
+  <li class="yearButton">
+  <button class="year" type="button" {{on "click" (fn this.displayCalendar '2020')}}>2020</button>
+  </li>
+  <li class="yearButton">
+  <button class="year" type="button" {{on "click" (fn this.displayCalendar '2021')}}>2021</button>
+  </li>
+</ul>

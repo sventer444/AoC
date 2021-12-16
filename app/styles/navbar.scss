@@ -1,0 +1,24 @@
+
+
+.navbar {
+    background-color: darkred;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.pageTitle {
+    float: left;
+  }
+.titleText {
+    color: white;
+}
+.yearButton {
+    padding : 10px;
+    float: right;
+}
+  /* Change the link color to #111 (black) on hover */
+.yearButton:hover {
+    background-color: #111;
+  }

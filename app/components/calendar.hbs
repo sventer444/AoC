@@ -1,29 +1,9 @@
 
 {{#if this.calendarManager.calendarDisplayed}}
 <h1>{{this.calendarManager.calendarDisplayed}}</h1>
-<div class="monthGrid">
-    <GridStack>
-  <GridStackItem @options={{hash x=0 y=0 w=3 h=1 noResize=true noMove=true locked=true}}>
-    1
-  </GridStackItem>
-  <GridStackItem @options={{hash x=3 y=0 w=3 h=1 noResize=true noMove=true locked=true}}>
-    2
-  </GridStackItem>
-  <GridStackItem @options={{hash x=6 y=0 w=3 h=1 noResize=true noMove=true locked=true}}>
-    3
-  </GridStackItem>
-  <GridStackItem @options={{hash x=9 y=0 w=3 h=1 noResize=true noMove=true locked=true}}>
-    4
-  </GridStackItem>
-  <GridStackItem @options={{hash x=12 y=0 w=3 h=1 noResize=true noMove=true locked=true}}>
-    5
-  </GridStackItem>
-  <GridStackItem @options={{hash x=15 y=0 w=3 h=1 noResize=true noMove=true locked=true}}>
-    6
-  </GridStackItem>
-  <GridStackItem @options={{hash x=18 y=0 w=3 h=1 noResize=true noMove=true locked=true}}>
-    7
-  </GridStackItem>
-</GridStack>
-</div>
+    <GridStack @options={{hash column=7 row=4 staticGrid=true}}>
+        <GridStackItem @options={{hash x=0 y=0 w=1 h=1}}>
+            <h3>1</h3>
+        </GridStackItem>
+    </GridStack>
 {{/if}}

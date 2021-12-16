@@ -1,3 +1,4 @@
+@use 'navbar';
 
 $asciiColor: #95D5B2;
 
@@ -5,5 +6,9 @@ $asciiColor: #95D5B2;
     font-family: monospace;
     white-space: pre;
     background-color: $asciiColor
+}
+
+body{
+    background-color: darkgrey;
 }
 
