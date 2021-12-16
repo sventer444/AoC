@@ -1,5 +1,7 @@
+$asciiColor: #95D5B2;
+
 .ascii {
     font-family: monospace;
     white-space: pre;
-    background-color: #95D5B2;
+    background-color: $asciiColor
 }
