@@ -56,8 +56,7 @@ function crateMover9001(moveInstructions, crateStacks){
         console.log("move qty "+qty+ " from source "+src+" to dest "+dest)
         console.log("original stack " + crateStacks[src-1])
         console.log("stack size is "+crateStacks[src-1].length +" qty is "+qty )
-        var cutPoint = (crateStacks[src-1].length - qty == 0)? 0 : crateStacks[src-1].length -qty
-        var pickupStack = crateStacks[src-1].splice(cutPoint)
+        var pickupStack = crateStacks[src-1].splice(crateStacks[src-1].length -qty)
         console.log("picked up stack "+pickupStack+ ", old stack is "+crateStacks[src-1])
         //console.log("picked up "+ pickupStack+ ", placing on top of " + crateStacks[dest-1])
         crateStacks[dest-1] = crateStacks[dest-1].concat(pickupStack)
