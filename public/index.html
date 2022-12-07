@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<meta content="utf-8" http-equiv="encoding">
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.3/socket.io.min.js'></script>
+</head>
+    <body bgcolor="90ee90">
+        <div style="text-align: center;">
+        <h1>Advent of Code</h1>
+        <pre>
+<font color="#d4af37">
+/\
+<  >
+\/</font><font color="darkgreen"></font>
+/\
+/  \
+/<font color="white">++++</font>\
+/  <font color="red">()</font>  \
+/      \
+/<font color="red">~`~`~`~`</font>\
+/  <font color="white">()</font>  <font color="red">()</font>  \
+/          \
+/<font color="white">*&*&*&*&*&*&</font>\
+/  <font color="red">()  <font color="white">()</font>  ()</font>  \
+/              \
+/<font color="red">++++++++++++++++</font>\
+/  <font color="white">()  <font color="red">()</font>  ()  <font color="red">()</font></font>  \
+/                  \
+/<font color="white">~`~`~`~`~`~`~`~`~`~`</font>\
+/  <font color="red">()  <font color="white">()</font>  ()  <font color="white">()</font>  ()</font>  \
+/                      \
+/ <font color="red">*&*&*&*&*&*&*&*&*&*&*&</font> \
+/,.,.,.,.,.,.,.,.,.,.,.,.,.\
+</font><font color="brown">|   |</font>
+<font color="darkred">|`````|
+\_____/</font>
+        </pre>
+        <br><br>
+<div id="YearCalendar">
+<button id="btn2022">2022</button>
+</div>
+<div id="DayCalendar" style="display:none">
+    <table align="center" 
+            cellspacing="21" cellpadding="21">
+            <tbody>
+                <tr>
+                    <td id="btn1">1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td id="btn5">5</td>
+                    <td>6</td>
+                    <td>7</td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+</div>
+
+<p>Output: </p><p id="output"></p>
+</div>
+</body>
+<script>
+    var socket = io.connect();
+    $(document).ready(function() {
+    socket.emit('test')
+    });
+    // $('#btn2022').click(()=>{
+    //     socket.emit('yearSelected', '2022')
+    //     socket.emit('hello', 'world')
+    //     $('#YearCalendar').hide()
+    //     $('#DayCalendar').show()
+    // });
+
+    // $('#btn1').click(()=>{
+    //     console.log("day 1 clicked")
+    //     socket.emit('daySelected', '1')
+    // })
+</script>
+</html> 
+

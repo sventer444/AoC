@@ -1,0 +1,29 @@
+{
+  "name": "adventofcode",
+  "version": "0.1.0",
+  "description": "repository/page for hosting and writing advent of code solutions via javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sventer444/AoC.git"
+  },
+  "keywords": [
+    "advent",
+    "code",
+    "christmas"
+  ],
+  "author": "Sam Venter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sventer444/AoC/issues"
+  },
+  "homepage": "https://github.com/sventer444/AoC#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socketio": "^1.0.0"
+  }
+}
