@@ -26,7 +26,13 @@ const server = app.listen(8080, () => {
 
     socket.on('daySelected', (day) => {
         console.log("User selected day "+day)
-        logicMan.applyDay(day)
+        var dayInput = logicMan.applyDay(day)
+        var answer = logicMan.fullAnswer(dayInput.toString())
+        socket.emit("answerPart1", answer.partOne)
+        socket.emit("answerPart2", answer.partTwo)
+        
+        
+        
       })
 
   
