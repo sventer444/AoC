@@ -3,6 +3,8 @@ Repo for my Advent of Code answers
 
 :santa: Merry Christmas, Happy Holidays :christmas_tree:
 
+## Screenshot
+![mainpage](./public/example.PNG)
 
 ### To Run
 
