@@ -16,14 +16,14 @@ document.getElementById('inputfile').addEventListener('change', function() {
     var moveInstructions = fullInputArray.slice(10)
     // remove extra empty instruction
     moveInstructions.pop()
-    var finalAnswer = interpretMoves(moveInstructions, crateStacks)
+    var finalAnswer = crateMover9001(moveInstructions, crateStacks)
     document.getElementById('answer').innerText = finalAnswer
     }
 
     reader.readAsText(this.files[0]);
 })
 
-function interpretMoves(moveInstructions, crateStacks){
+function crateMover9000(moveInstructions, crateStacks){
     moveInstructions.forEach(element => {
         var instructionArray = element.split(" ")
         var qty = instructionArray[1]
@@ -39,6 +39,30 @@ function interpretMoves(moveInstructions, crateStacks){
         }
     })
     //console.log(moveInstructions)
+    var answer = ""
+    crateStacks.forEach(stack => {
+        var topCrate = stack.pop()
+        answer += (topCrate != "") ? topCrate : "Interpretation Fail"
+    })
+    return answer
+}
+
+function crateMover9001(moveInstructions, crateStacks){
+    moveInstructions.forEach(element => {
+        var instructionArray = element.split(" ")
+        var qty = instructionArray[1]
+        var src = instructionArray[3]
+        var dest = instructionArray[5]
+        console.log("move qty "+qty+ " from source "+src+" to dest "+dest)
+        console.log("original stack " + crateStacks[src-1])
+        console.log("stack size is "+crateStacks[src-1].length +" qty is "+qty )
+        var cutPoint = (crateStacks[src-1].length - qty == 0)? 0 : crateStacks[src-1].length -qty
+        var pickupStack = crateStacks[src-1].splice(cutPoint)
+        console.log("picked up stack "+pickupStack+ ", old stack is "+crateStacks[src-1])
+        //console.log("picked up "+ pickupStack+ ", placing on top of " + crateStacks[dest-1])
+        crateStacks[dest-1] = crateStacks[dest-1].concat(pickupStack)
+    })
+
     var answer = ""
     crateStacks.forEach(stack => {
         var topCrate = stack.pop()
