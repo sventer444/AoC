@@ -17,21 +17,18 @@ const server = app.listen(8080, () => {
   })
 
   io.on('connection', (socket) => {
-    //var logicMan = new LogicManager()
-  
-    // socket.on('yearSelected', (year) => {
-    //     console.log("User selected year "+year)
-    //     logicMan.applyYear(year)
-    // })
-
-    // socket.on('daySelected', (day) => {
-    //     console.log("User selected day "+day)
-    //     logicMan.applyDay(day)
-    //   })
-
-    socket.on('test', () => {
-        console.log('hit test')
+    var logicMan = new LogicManager()
+    
+    socket.on('yearSelected', (year) => {
+        console.log("User selected year "+year)
+        logicMan.applyYear(year)
     })
+
+    socket.on('daySelected', (day) => {
+        console.log("User selected day "+day)
+        logicMan.applyDay(day)
+      })
+
   
     socket.on("connect_error", (err) => {
       console.log(`connect_error due to ${err.message}`);
