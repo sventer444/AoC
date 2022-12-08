@@ -1,0 +1,32 @@
+@use "ascii/tree";
+@use "ascii/santa";
+@use "ascii/ornaments";
+@use "ascii/snowman";
+@use "ascii/candycane";
+@use "ascii/elf";
+@use "ascii/grinch";
+@use "ascii/holly";
+@use "ascii/holybirth";
+@use "ascii/nativity";
+@use "ascii/sleighInAction";
+@use "ascii/snowflakes";
+@use "ascii/stocking";
+@use "ascii/stockingHearth";
+@use "ascii/treeWithPreasents";
+@use "ascii/wreath";
+@use "ascii/xmaslights";
+
+$christmasDarkGreen: #003e1f;
+$christmasLightGreen: #568d66;
+$christmasLightRed: #cb0b0a;
+$christmasDarkRed: #8e0413;
+$christmasWhite: #f3f4f6;
+
+.ascii {
+    font-family: monospace;
+    font-size: medium;
+    white-space: pre;
+    background-color: $christmasLightGreen;
+}
+
+
