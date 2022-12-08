@@ -2,86 +2,111 @@
 <meta content="utf-8" http-equiv="encoding">
 <html>
 <head>
+    <style>
+.santa {
+    font-size: 25px;
+}
+.santaGlove {
+    color: #333300;
+}
+.hatRed {
+    color: #cb0b0a;
+}
+.suitWhite{
+    color: #f3f4f6;
+}
+.santasSack {
+    color: darkslategrey;
+}
+.santaShoes {
+    color: black;
+}
+.santaSuit {
+    color: #8e0413;
+}
+.santaBelt {
+    color: gold;
+}
+
+.snowflakes {
+    color: #f3f4f6;
+}
+.outfit {
+    color: #003e1f;
+}
+.bauble {
+    color: #f3f4f6;
+}
+.outfitaccent {
+    color: #cb0b0a;
+}
+.hair {
+    color: goldenrod;
+}
+
+.candycane {
+    color: #f3f4f6;
+}
+.stripe {
+    color: #cb0b0a;
+}
+.bow {
+    color: #003e1f;
+}
+    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.min.js'></script>
 </head>
     <body bgcolor="90ee90">
-        <div style="text-align: center;">
-        <h1>Advent of Code</h1>
-        <pre>
-<font color="#d4af37">
-/\
-<  >
-\/</font><font color="darkgreen"></font>
-/\
-/  \
-/<font color="white">++++</font>\
-/  <font color="red">()</font>  \
-/      \
-/<font color="red">~`~`~`~`</font>\
-/  <font color="white">()</font>  <font color="red">()</font>  \
-/          \
-/<font color="white">*&*&*&*&*&*&</font>\
-/  <font color="red">()  <font color="white">()</font>  ()</font>  \
-/              \
-/<font color="red">++++++++++++++++</font>\
-/  <font color="white">()  <font color="red">()</font>  ()  <font color="red">()</font></font>  \
-/                  \
-/<font color="white">~`~`~`~`~`~`~`~`~`~`</font>\
-/  <font color="red">()  <font color="white">()</font>  ()  <font color="white">()</font>  ()</font>  \
-/                      \
-/ <font color="red">*&*&*&*&*&*&*&*&*&*&*&</font> \
-/,.,.,.,.,.,.,.,.,.,.,.,.,.\
-</font><font color="brown">|   |</font>
-<font color="darkred">|`````|
-\_____/</font>
-        </pre>
-        <br><br>
-<div id="YearCalendar">
+        <h1 style="text-align: center;">Advent of Code</h1>
+        <div id="asciiDiv" style="align-content: left;">
+        </div>
+<div style="text-align: center;">
+<div id="YearCalendar"">
 <button id="btn2022">2022</button>
 </div>
 <div id="DayCalendar" style="display:none">
     <table align="center" 
-            cellspacing="21" cellpadding="21">
-            <tbody>
-                <tr>
-                    <td id="btn1" onclick="daySelect('1')">1</td>
-                    <td id="btn2" onclick="daySelect('2')">2</td>
-                    <td id="btn3" onclick="daySelect('3')">3</td>
-                    <td id="btn4" onclick="daySelect('4')">4</td>
-                    <td id="btn5" onclick="daySelect('5')">5</td>
-                    <td id="btn6" onclick="daySelect('6')">6</td>
-                    <td id="btn7" onclick="daySelect('7')">7</td>
-                </tr>
-                <tr></tr>
-                <tr>
-                    <td id="btn8" onclick="daySelect('8')">8</td>
-                    <td id="btn9" onclick="daySelect('9')">9</td>
-                    <td id="btn10" onclick="daySelect('10')">10</td>
-                    <td id="btn11" onclick="daySelect('11')">11</td>
-                    <td id="btn12" onclick="daySelect('12')">12</td>
-                    <td id="btn13" onclick="daySelect('13')">13</td>
-                    <td id="btn14" onclick="daySelect('14')">14</td>
-                </tr>
-                <tr>
-                    <td id="btn15" onclick="daySelect('15')">15</td>
-                    <td id="btn16" onclick="daySelect('16')">16</td>
-                    <td id="btn17" onclick="daySelect('17')">17</td>
-                    <td id="btn18" onclick="daySelect('18')">18</td>
-                    <td id="btn19" onclick="daySelect('19')">19</td>
-                    <td id="btn20" onclick="daySelect('20')">20</td>
-                    <td id="btn21" onclick="daySelect('21')">21</td>
-                </tr>
-                <tr>
-                    <td id="btn22" onclick="daySelect('22')">22</td>
-                    <td id="btn23" onclick="daySelect('23')">23</td>
+    cellspacing="21" cellpadding="21">
+    <tbody>
+    <tr>
+    <td id="btn1" onclick="daySelect('1')">1</td>
+    <td id="btn2" onclick="daySelect('2')">2</td>
+    <td id="btn3" onclick="daySelect('3')">3</td>
+    <td id="btn4" onclick="daySelect('4')">4</td>
+    <td id="btn5" onclick="daySelect('5')">5</td>
+    <td id="btn6" onclick="daySelect('6')">6</td>
+    <td id="btn7" onclick="daySelect('7')">7</td>
+   </tr>
+    <tr></tr>
+   <tr>
+    <td id="btn8" onclick="daySelect('8')">8</td>
+   <td id="btn9" onclick="daySelect('9')">9</td>
+   <td id="btn10" onclick="daySelect('10')">10</td>
+    <td id="btn11" onclick="daySelect('11')">11</td>
+   <td id="btn12" onclick="daySelect('12')">12</td>
+    <td id="btn13" onclick="daySelect('13')">13</td>
+    <td id="btn14" onclick="daySelect('14')">14</td>
+   </tr>
+    <tr>
+    <td id="btn15" onclick="daySelect('15')">15</td>
+   <td id="btn16" onclick="daySelect('16')">16</td>
+   <td id="btn17" onclick="daySelect('17')">17</td>
+    <td id="btn18" onclick="daySelect('18')">18</td>
+    <td id="btn19" onclick="daySelect('19')">19</td>
+    <td id="btn20" onclick="daySelect('20')">20</td>
+   <td id="btn21" onclick="daySelect('21')">21</td>
+   </tr>
+   <tr>
+    <td id="btn22" onclick="daySelect('22')">22</td>
+    <td id="btn23" onclick="daySelect('23')">23</td>
                     <td id="btn24" onclick="daySelect('24')">24</td>
-                </tr>
-                </tr>
-            </tbody>
-        </table>
+    </tr>
+    </tr>
+    </tbody>
+    </table>
 
-    <table id="Output" align="center" 
+    <table id="Output" align="center"
     cellspacing="21" cellpadding="10">
         <tr>
             <td>Part 1</td><td>Part 2</td>
@@ -93,10 +118,17 @@
     
 </div>
 </div>
+
+
+
 </body>
 <script>
     var socket = io.connect();
     var currentDay = 0
+
+    $(document).ready(() => {
+        socket.emit('asciiRequest')
+    })
 
     $('#btn2022').click(()=>{
         socket.emit('yearSelected', $('#btn2022').text())
@@ -118,6 +150,10 @@
 
     socket.on('answerPart2', (answer) => {
         $('#answerpart2').text(answer)
+    })
+
+    socket.on('asciiRecieved', (ascii) => {
+        $('#asciiDiv').html(ascii)
     })
 </script>
 </html> 

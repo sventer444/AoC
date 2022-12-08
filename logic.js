@@ -33,6 +33,25 @@ module.exports = class{
         })
         return result
     }
+    
+    getRandomAscii(){
+        var fileDirectory = "./public/ascii/"
+        var files = this.fs.readdirSync(fileDirectory, (err, files) => {
+            return files
+        })
+        var file = files[Math.floor(Math.random() * files.length)]
+        var fileDir = fileDirectory + file
+        if(this.fs.existsSync(fileDir)){
+            var fileData = this.fs.readFileSync(fileDir, {encoding: "utf-8"}, (err, data) => {
+                    return data
+                 })
+            return fileData
+        }
+        else {
+            console.log("requested ascii did not exist")
+            return "Art Failed To Load :("
+        }
+    }
 
     answerPart(part, dayInput){
         var answerDirectory = './answers/'+this.year+'/day'+this.day+'/part'+part+'/answer.js'

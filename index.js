@@ -30,11 +30,13 @@ const server = app.listen(8080, () => {
         var answer = logicMan.fullAnswer(dayInput.toString())
         socket.emit("answerPart1", answer.partOne)
         socket.emit("answerPart2", answer.partTwo)
-        
-        
-        
       })
 
+    socket.on('asciiRequest', () => {
+      console.log('ascii requested, merry christmas')
+      var asciiResponse = logicMan.getRandomAscii()
+      socket.emit("asciiRecieved", asciiResponse)
+    })
   
     socket.on("connect_error", (err) => {
       console.log(`connect_error due to ${err.message}`);
