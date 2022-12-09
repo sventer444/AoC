@@ -21,12 +21,10 @@ function crateMover9000(moveInstructions, crateStacks){
         var qty = instructionArray[1]
         var src = instructionArray[3]
         var dest = instructionArray[5]
-        console.log("move qty "+qty+ " from source "+src+" to dest "+dest)
         for(qty; qty>0; qty--){
             var crate = crateStacks[src-1].pop()
             if(crate != ""){
                 crateStacks[dest-1].push(crate)
-                console.log(crate+" on top of stack " + dest)
             }            
         }
     })
