@@ -1,13 +1,13 @@
 
 module.exports = class{
     constructor(input){
-        this.fullInputArray = input.split("\n\n")
-    //console.log(fullInputArray)
+        this.fullInputArray = input.split(/\n\s*\n/)
     }
     answer(){
         return cleanInput(this.fullInputArray)
     }
 }
+
 function elfSnackCounter(elf){
     var elfTotal = elf.reduce((count, snack) => {
         return Number(count) + Number(snack)

@@ -12,7 +12,6 @@ const server = app.listen(8080, () => {
   const io = require('socket.io')(server)
 
   app.get('/', (req, res) => {
-    console.log('rendered homepage')
     res.render('index.html')
   })
 

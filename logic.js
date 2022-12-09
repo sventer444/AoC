@@ -28,7 +28,7 @@ module.exports = class{
 
     fullAnswer(dayInput){
         var result = new Object({
-            partOne: "No Answer Available",// this.answerPart('1', dayInput),
+            partOne: this.answerPart('1', dayInput),
             partTwo: this.answerPart('2', dayInput)
         })
         return result

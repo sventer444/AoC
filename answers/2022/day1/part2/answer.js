@@ -1,18 +1,16 @@
 
 module.exports = class{
     constructor(input){
-        this.fullInputArray = input.split("\n\n")
-    //console.log(fullInputArray)
+        this.fullInputArray = input.split(/\n\s*\n/)
     }
     answer(){
         var top3 = cleanInput(this.fullInputArray)
-        console.log('top3 '+top3)
-        return top3[0] + top3[1] + top3[2]
+        var total = Number(top3[0]) + Number(top3[1]) + Number(top3[2])
+        return total
     }
 }
 
 function elfSnackCounter(elf){
-    console.log("elf is carrying"+elf)
     var elfTotal = elf.reduce((count, snack) => {
         return Number(count) + Number(snack)
     })
@@ -24,8 +22,7 @@ function cleanInput(input){
     var topSnacks = [0, 0, 0]
     cleanedInput.map(elf => {
         var count = elfSnackCounter(elf.split("\n"))
-        console.log('calorie count '+ count)
-        if(count>topSnacks[2]){
+        if(Number(count) > Number(topSnacks[2])){
             topSnacks = sortSnacks(topSnacks, count)
         }
     })
@@ -38,6 +35,5 @@ function sortSnacks(topSnacks, count){
     topSnacks.sort((a, b) => {
         return b - a
     })
-    console.log("After sorting, "+topSnacks)
     return topSnacks
 }
