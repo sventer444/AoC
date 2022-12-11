@@ -1,7 +1,7 @@
 const express = require('express')
 const LogicManager = require('./logic.js')
 const app = express()
-const port = process.env.PORT | 3000
+const port = process.env.PORT | 443
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
