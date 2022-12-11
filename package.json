@@ -4,7 +4,6 @@
   "description": "repository/page for hosting and writing advent of code solutions via javascript",
   "main": "index.js",
   "scripts": {
-    "test": "test",
     "dev": "nodemon index.js",
     "start": "node index.js"
   },
