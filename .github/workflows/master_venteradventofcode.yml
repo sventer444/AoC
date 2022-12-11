@@ -34,7 +34,6 @@ jobs:
 
   deploy:
     runs-on: windows-latest
-    using: node16
     needs: build
     environment:
       name: 'Production'
