@@ -1,13 +1,14 @@
 const express = require('express')
 const LogicManager = require('./logic.js')
 const app = express()
+const port = process.env.PORT | 3000
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(express.static('public'))
 
-const server = app.listen(8080, () => {
-    console.log(`Listening at localhost:8080`)
+const server = app.listen(port, () => {
+    console.log(`Listening at localhost`)
   })
   const io = require('socket.io')(server)
 
