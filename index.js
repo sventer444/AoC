@@ -1,7 +1,7 @@
 const express = require('express')
 const LogicManager = require('./logic.js')
 const app = express()
-const port = process.env.PORT | 443
+const port = process.env.PORT | 3000
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
@@ -13,7 +13,11 @@ const server = app.listen(port, () => {
   const io = require('socket.io')(server)
 
   app.get('/', (req, res) => {
-    res.render('index.html')
+    //res.render('index.html')
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/html');
+
+    res.end('<h1>Hello World</h1>');
   })
 
   io.on('connection', (socket) => {
