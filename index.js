@@ -1,28 +1,46 @@
+const http = require('http');
+
+const port=process.env.PORT || 3000
+
+const server = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/html');
+
+res.end('<h1>Hello World</h1>');
+
+});
+
+server.listen(port,() => {
+
+    console.log(`Server running at port `+port);
+    
+    });
+
 // const express = require('express')
 // const LogicManager = require('./logic.js')
-const app = express()
-const port = process.env.PORT | 3000
+// const app = express()
+// const port = process.env.PORT | 3000
 
 // app.use(express.urlencoded({extended: true}))
 // app.use(express.json())
 // app.use(express.static('public'))
 
-const server = app.listen(port, () => {
-    console.log(`Listening at localhost${port}`)
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
+// const server = app.listen(port, () => {
+//     console.log(`Listening at localhost${port}`)
+//     res.statusCode = 200;
+//     res.setHeader('Content-Type', 'text/html');
 
-    res.end('<h1>Hello World</h1>');
-  })
+//     res.end('<h1>Hello World</h1>');
+//   })
 //   const io = require('socket.io')(server)
 
-  app.get('/', (req, res) => {
-    //res.render('index.html')
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
+//   app.get('/', (req, res) => {
+//     res.render('index.html')
+//     res.statusCode = 200;
+//     res.setHeader('Content-Type', 'text/html');
 
-    res.end('<h1>Hello World</h1>');
-  })
+//     res.end('<h1>Hello World</h1>');
+//   })
 
 //   io.on('connection', (socket) => {
 //     var logicMan = new LogicManager()
