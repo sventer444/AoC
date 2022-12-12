@@ -2,7 +2,7 @@ name: Build and deploy Node.js app to Azure Web App - venteradventofcode
 
 on:
   push:
-    branches: "master"
+    branches: "test"
   workflow_dispatch:
 
 env:
