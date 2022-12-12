@@ -3,12 +3,16 @@
 const app = express()
 const port = process.env.PORT | 3000
 
-app.use(express.urlencoded({extended: true}))
-app.use(express.json())
-app.use(express.static('public'))
+// app.use(express.urlencoded({extended: true}))
+// app.use(express.json())
+// app.use(express.static('public'))
 
 const server = app.listen(port, () => {
-    console.log(`Listening at localhost`)
+    console.log(`Listening at localhost${port}`)
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/html');
+
+    res.end('<h1>Hello World</h1>');
   })
 //   const io = require('socket.io')(server)
 
