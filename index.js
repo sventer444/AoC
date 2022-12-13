@@ -40,12 +40,12 @@ server.listen(port,() => {
   //})
   const io = require('socket.io')(server)
 
-  app.get('/', (req, res) => {
+  app.get('/aoc', (req, res) => {
     //res.render('index.html')
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/html');
 
-    res.end('<h1>Home Page</h1>');
+    res.end('<h1>Advent Home Page</h1>');
   })
 
   io.on('connection', (socket) => {
