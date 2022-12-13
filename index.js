@@ -12,8 +12,8 @@ const server = http.createServer((req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/html');
 
-res.end('<h1>Hello World</h1>');
-
+    res.render('index.html')
+    res.end()
 });
 
 server.listen(port,() => {
@@ -40,13 +40,6 @@ server.listen(port,() => {
   //})
   const io = require('socket.io')(server)
 
-  app.get('/aoc', (req, res) => {
-    //res.render('index.html')
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
-
-    res.end('<h1>Advent Home Page</h1>');
-  })
 
   io.on('connection', (socket) => {
     var logicMan = new LogicManager()
