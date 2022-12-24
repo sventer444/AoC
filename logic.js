@@ -39,7 +39,7 @@ module.exports = class{
         var files = this.fs.readdirSync(fileDirectory, (err, files) => {
             return files
         })
-        var file = files[9]//files[Math.floor(Math.random() * files.length)]
+        var file = files[7]//files[Math.floor(Math.random() * files.length)]
         var fileDir = fileDirectory + file
         if(this.fs.existsSync(fileDir)){
             var fileData = this.fs.readFileSync(fileDir, {encoding: "utf-8"}, (err, data) => {
