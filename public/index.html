@@ -161,11 +161,19 @@
     }
 
     socket.on('answerPart1', (answer) => {
-        $('#answerpart1').text(answer)
+        //TODO Parse answers for multiple lines of text
+        // var splitAnswer = answer.split("\n")
+        // answer.map(answerLine => {
+        //     console.log(answerLine)
+        //     $('#answerpart1').html(answerLine)
+        //     $('#answerpart1').html("<br>")
+        // })
+        
+        $('#answerpart1').html(answer)
     })
 
     socket.on('answerPart2', (answer) => {
-        $('#answerpart2').text(answer)
+        $('#answerpart2').html(answer)
     })
 
     socket.on('asciiRecieved', (ascii) => {
