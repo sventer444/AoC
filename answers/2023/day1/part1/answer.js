@@ -31,7 +31,7 @@ module.exports = class{
             // console.log('Last Number' +lastNum)
 
             //TODO Return combination of first and second integers
-            var newNum = (firstNum != undefined)? '0' : (lastNum != undefined)? `${firstNum}${firstNum}` : `${firstNum}${lastNum}`
+            var newNum = (firstNum == undefined)? '0' : (lastNum == undefined)? `${firstNum}${firstNum}` : `${firstNum}${lastNum}`
             // console.log('New Number: ' +newNum)
             this.answerValue.push(`Number '${newNum}' in '${value}' <br>`)
             return newNum
