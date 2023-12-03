@@ -4,7 +4,7 @@ module.exports = class{
         this.splitInput = input.split(/\n\s*\n/)
         this.fullInputArray = this.splitInput[0].split("\n")
         //Cap array at 10 for now
-        this.fullInputArray.length = 10
+        // this.fullInputArray.length = 50
         // console.log('Count: '+this.fullInputArray.length)
     }
     answer(){
@@ -17,9 +17,12 @@ module.exports = class{
     mapToDigits(value){
         
             //TODO Parse first integer in line
-            var origValue = value
-            value = this.iterativeParse(value, false)
-            this.answerValue.push(`Round 1 parse: ${origValue} = ${value} <br>`)
+            var firstParse = this.iterativeParse(value, false)
+            // this.answerValue.push(`Round 1 parse: ${value} = ${firstParse} <br>`)
+            
+            var secondParse = this.iterativeParse(firstParse, true)
+            // this.answerValue.push(`Round 2 parse: ${firstParse} = ${secondParse} <br>`)
+            value = secondParse
             // console.log(value)
             const firstNumIndex = value.search(/[0-9]/)
             const firstNum = value[firstNumIndex] 
@@ -36,7 +39,7 @@ module.exports = class{
             //TODO Return combination of first and second integers
             var newNum = (firstNum == undefined)? '0' : (lastNum == undefined)? `${firstNum}${firstNum}` : `${firstNum}${lastNum}`
             // console.log('New Number: ' +newNum)
-            // this.answerValue.push(`Number '${newNum}' in '${value}' <br>`)
+            this.answerValue.push(`Number '${newNum}' in '${value}' <br>`)
             return newNum
     }
     parseDigits(input){
@@ -51,58 +54,58 @@ module.exports = class{
             'six',
             'seven',
             'eight',
-            'nine'
+            'nine',
         ]
         
         var parsedInput = input;
             switch(true){
                 case input.includes(englishNumbers[1]):
                     var index = 1
-                    console.log(`Found ${englishNumbers[index]} in ${input}`)
+                    // console.log(`Found ${englishNumbers[index]} in ${input}`)
                     parsedInput = this.replaceDigits(input, englishNumbers[index], index);
                     break;
                 case input.includes(englishNumbers[2]):
                     var index = 2
-                    console.log(`Found ${englishNumbers[index]} in ${input}`)
+                    // console.log(`Found ${englishNumbers[index]} in ${input}`)
                     parsedInput = this.replaceDigits(input, englishNumbers[index], index);
                     break;
                 case input.includes(englishNumbers[3]):
                     var index = 3
-                    console.log(`Found ${englishNumbers[index]} in ${input}`)
+                    // console.log(`Found ${englishNumbers[index]} in ${input}`)
                     parsedInput = this.replaceDigits(input, englishNumbers[index], index);
                     break;
                 case input.includes(englishNumbers[4]):
                     var index = 4
-                    console.log(`Found ${englishNumbers[index]} in ${input}`)
+                    // console.log(`Found ${englishNumbers[index]} in ${input}`)
                     parsedInput = this.replaceDigits(input, englishNumbers[index], index);
                     break;
                 case input.includes(englishNumbers[5]):
                     var index = 5
-                    console.log(`Found ${englishNumbers[index]} in ${input}`)
+                    // console.log(`Found ${englishNumbers[index]} in ${input}`)
                     parsedInput = this.replaceDigits(input, englishNumbers[index], index);
                     break;
                 case input.includes(englishNumbers[6]):
                     var index = 6
-                    console.log(`Found ${englishNumbers[index]} in ${input}`)
+                    // console.log(`Found ${englishNumbers[index]} in ${input}`)
                     parsedInput = this.replaceDigits(input, englishNumbers[index], index);
                     break;
                 case input.includes(englishNumbers[7]):
                     var index = 7
-                    console.log(`Found ${englishNumbers[index]} in ${input}`)
+                    // console.log(`Found ${englishNumbers[index]} in ${input}`)
                     parsedInput = this.replaceDigits(input, englishNumbers[index], index);
                     break;
                 case input.includes(englishNumbers[8]):
                     var index = 8
-                    console.log(`Found ${englishNumbers[index]} in ${input}`)
+                    // console.log(`Found ${englishNumbers[index]} in ${input}`)
                     parsedInput = this.replaceDigits(input, englishNumbers[index], index);
                     break;
                 case input.includes(englishNumbers[9]):
                     var index = 9
-                    console.log(`Found ${englishNumbers[index]} in ${input}`)
+                    // console.log(`Found ${englishNumbers[index]} in ${input}`)
                     parsedInput = this.replaceDigits(input, englishNumbers[index], index);
                     break;
                 default:
-                    console.log('No string found to convert. Exiting loop')
+                    // console.log('No string found to convert. Exiting loop')
                     break;
             }
         
@@ -111,15 +114,13 @@ module.exports = class{
     replaceDigits(string, english, integer){
         var re = new RegExp(english, 'g');
 
-        var replacedString = string.replace(re, integer);
+        var replacedString = string.replace(re, (integer+english));
         // console.log(`Replaced ${english} in ${replacedString}`)
         return replacedString
     }
     iterativeParse(input, reverse){
-
         var index = reverse ? -3 : 3
         var parsedInput = input
-
 
         if(!reverse){
             while(index <= input.length){
@@ -133,7 +134,16 @@ module.exports = class{
             }
         }
         else{
-
+            while(Math.abs(index) <= input.length){
+                var inputSection = input.slice(index)
+                // console.log(`Input section: ${inputSection}`)
+                var parsedSection = this.parseDigits(inputSection)
+                if(!inputSection.match(parsedSection)){
+                    index = -(input.length)
+                    parsedInput = input.replace(inputSection, parsedSection)
+                }
+                index--
+            }
         }
         return parsedInput
         
@@ -143,8 +153,7 @@ module.exports = class{
             // console.log('Incoming Input: '+input)
             var parsedNum = parseInt(input)
             // console.log('Parsed int: '+ parsedNum)
-            // this.answerValue[index] = `Number: ${parsedNum} + Total: ${total} = ${(total + parsedNum)} <br>`
-            console.log(`Number: ${parsedNum} + Total: ${total} = ${(total + parsedNum)}`)
+            // console.log(`Number: ${parsedNum} + Total: ${total} = ${(total + parsedNum)}`)
             total += parsedNum
             return total
         }, 0)
