@@ -9,18 +9,18 @@ module.exports = class{
     }
     answer(){
         this.answerValue = []
-        var gamesMap = this.fullInputArray.map(this.handleRound, this)
-        // console.log(gamesMap)
-        var validGamesMap = gamesMap.map(gameValid => {
-            return gameValid.includes(false)? false : true
-        })
-        // console.log(validGamesMap)
-        var gameSum = this.sumGames(validGamesMap)
-        this.answerValue.push(`Sum of Valid Games: ${gameSum}`)
+        // var gamesMap = this.fullInputArray.map(this.handleRound, this)
+        // // console.log(gamesMap)
+        // var validGamesMap = gamesMap.map(gameValid => {
+        //     return gameValid.includes(false)? false : true
+        // })
+        // // console.log(validGamesMap)
+        // var gameSum = this.sumGames(validGamesMap)
+        // this.answerValue.push(`Sum of Valid Games: ${gameSum}`)
         return this.answerValue
     }
     handleRound(gameRound){
-        // this.answerValue.push(`${gameRound} <br>`)
+        this.answerValue.push(`${gameRound} <br>`)
         var roundGrabs = gameRound.split(":")
         roundGrabs = roundGrabs[1].split(";")
         var validRounds = roundGrabs.map(this.handleGrab, this)
