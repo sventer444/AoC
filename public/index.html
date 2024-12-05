@@ -44,7 +44,7 @@
 }
 
 .topnav p {
-  float: left;
+  float: right;
   color: #09a11e;
   text-align: center;
   padding: 14px 16px;
@@ -69,15 +69,16 @@
     <body class="body">
         <div class="topnav">
             <p id="btn2022" onclick="yearSelect('2022')">2022</p>
-            <h1 style="text-align: center; color:#09a11e; text-align: right; margin-right: 3%;">Advent of Code</h1>
-          </div>
+            <p id="btn2023" onclick="yearSelect('2023')">2023</p>
+            <h1 style="text-align: center; color:#09a11e; text-align: left; margin-left: 5%;">Advent of Code</h1>
+        </div>
     <div class="flex-container">
         
 <div id="asciiDiv" style="align-content: left;">
 </div>
 <div style="text-align: center;">
 <div id="DayCalendar" style="display:none">
-    <table align="center" 
+    <table align="center"
     cellspacing="21" cellpadding="21">
     <tbody>
     <tr>
@@ -145,7 +146,7 @@
 
 
     function yearSelect(year){
-        $('#btn'+year).addClass('active')
+        $('#btn').hasClass('active') ? $('#btn'+year).removeClass('active') : $('#btn'+year).addClass('active')
         socket.emit('yearSelected', year)
         $('#DayCalendar').show()
     }
@@ -160,11 +161,19 @@
     }
 
     socket.on('answerPart1', (answer) => {
-        $('#answerpart1').text(answer)
+        //TODO Parse answers for multiple lines of text
+        // var splitAnswer = answer.split("\n")
+        // answer.map(answerLine => {
+        //     console.log(answerLine)
+        //     $('#answerpart1').html(answerLine)
+        //     $('#answerpart1').html("<br>")
+        // })
+        
+        $('#answerpart1').html(answer)
     })
 
     socket.on('answerPart2', (answer) => {
-        $('#answerpart2').text(answer)
+        $('#answerpart2').html(answer)
     })
 
     socket.on('asciiRecieved', (ascii) => {

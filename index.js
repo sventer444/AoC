@@ -8,7 +8,7 @@ app.use(express.static('public'))
 
 
 const server = app.listen(port, () => {
-    console.log(`Listening at localhost${port}`)
+    console.log(`Listening at localhost:${port}`)
   })
   const io = require('socket.io')(server)
 
